@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Pack } from '@potion/layout';
 import { Svg, Circle } from '@potion/element';
 
-const Bubbles = ({ colors }) => {
+const Bubbles = ({ colors, onLogout }) => {
   const [bubbleData, setBubbleData] = useState([]);
   useEffect(() => {
     const generateBubbleData = colors.map((_, i) => ({
@@ -15,6 +15,9 @@ const Bubbles = ({ colors }) => {
   return (
     <div className='bubble-wrap'>
       <p>bubbles</p>
+      <button className='logout' onClick={onLogout}>
+        Logout
+      </button>
       {/*<button>Click me</button>*/}
       <Svg width={400} height={400}>
         <Pack

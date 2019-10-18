@@ -6,8 +6,13 @@ import ColorList from './ColorList';
 
 const colorsURL = 'http://localhost:5000/api/colors';
 
-const BubblePage = () => {
+const BubblePage = props => {
   const [colorList, setColorList] = useState([]);
+
+  const onLogout = () => {
+    localStorage.clear();
+    props.history.push('/');
+  };
 
   useEffect(() => {
     axiosWithAuth()
@@ -21,7 +26,7 @@ const BubblePage = () => {
   return (
     <>
       <ColorList colors={colorList} updateColors={setColorList} />
-      <Bubbles colors={colorList} />
+      <Bubbles colors={colorList} onLogout={onLogout} />
     </>
   );
 };
