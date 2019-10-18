@@ -44,15 +44,15 @@ const ColorList = ({ colors, updateColors, onLogout }) => {
   const addColor = e => {
     e.preventDefault();
 
-    axiosWithAuth()
-      .post(colorsURL, colorToAdd)
-      .then(res => {
-        if (colorToAdd.color && colorToAdd.code.hex) {
+    if (colorToAdd.color && colorToAdd.code.hex) {
+      axiosWithAuth()
+        .post(colorsURL, colorToAdd)
+        .then(res => {
           updateColors(res.data);
           setColorToAdd(initialColor);
-        }
-      })
-      .catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   return (
