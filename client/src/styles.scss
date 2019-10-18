@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 html,
 body,
@@ -11,13 +11,60 @@ body,
 }
 
 .App {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   display: flex;
 
   svg {
     height: 100%;
   }
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.login {
+  height: 13rem;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    width: 100%;
+    outline: none;
+    transition: ease-in 0.1s;
+
+    &:hover {
+      transform: scale(1.02);
+      transition: ease-out 0.1s;
+    }
+  }
+  .submit-button {
+    width: 10rem;
+    &:hover {
+      box-shadow: 0px 6px 15px #7c7b7b;
+    }
+  }
+}
+
+.button {
+  width: 10rem;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  background: #2f9c2f;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px #6d6c6c;
+  color: white;
 }
 
 .spacer {
@@ -45,6 +92,22 @@ body,
       display: flex;
       justify-content: space-between;
       width: 100%;
+    }
+  }
+
+  .logout {
+    background: #df3c3c;
+    align-self: flex-end;
+    margin-top: 2.7rem;
+    width: 7rem;
+    padding: 0.5rem 0;
+    transition: ease-in 0.1s;
+    outline: none;
+
+    &:hover {
+      box-shadow: 0px 6px 12px #6d6c6c;
+      transform: scale(1.02);
+      transition: ease-out 0.1s;
     }
   }
 }
@@ -81,6 +144,7 @@ form {
 
   input {
     width: 100px;
+    outline: none;
   }
 }
 
@@ -95,5 +159,8 @@ form {
     color: white;
     padding: 3px 8px;
     margin-top: 16px;
+    cursor: pointer;
+    border-radius: 2px;
+    outline: none;
   }
 }
