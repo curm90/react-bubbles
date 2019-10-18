@@ -47,8 +47,10 @@ const ColorList = ({ colors, updateColors, onLogout }) => {
     axiosWithAuth()
       .post(colorsURL, colorToAdd)
       .then(res => {
-        updateColors(res.data);
-        setColorToAdd(initialColor);
+        if (colorToAdd.color && colorToAdd.code.hex) {
+          updateColors(res.data);
+          setColorToAdd(initialColor);
+        }
       })
       .catch(err => console.log(err));
   };
@@ -73,7 +75,7 @@ const ColorList = ({ colors, updateColors, onLogout }) => {
         ))}
       </ul>
       {editing ? (
-        <form classname='edit-form' onSubmit={saveEdit}>
+        <form onSubmit={saveEdit}>
           <legend>edit color</legend>
           <label>
             color name:
@@ -102,7 +104,7 @@ const ColorList = ({ colors, updateColors, onLogout }) => {
           </div>
         </form>
       ) : (
-        <form className='add-form' onSubmit={addColor}>
+        <form onSubmit={addColor}>
           <legend>Add Color</legend>
           <label>
             color name:
