@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
 
 const initialColor = {
-  color: "",
-  code: { hex: "" }
+  color: '',
+  code: { hex: '' }
 };
 
 const ColorList = ({ colors, updateColors }) => {
@@ -28,19 +27,19 @@ const ColorList = ({ colors, updateColors }) => {
   };
 
   return (
-    <div className="colors-wrap">
+    <div className='colors-wrap'>
       <p>colors</p>
       <ul>
         {colors.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
             <span>
-              <span className="delete" onClick={() => deleteColor(color)}>
+              <span className='delete' onClick={() => deleteColor(color)}>
                 x
-              </span>{" "}
+              </span>{' '}
               {color.color}
             </span>
             <div
-              className="color-box"
+              className='color-box'
               style={{ backgroundColor: color.code.hex }}
             />
           </li>
@@ -70,13 +69,13 @@ const ColorList = ({ colors, updateColors }) => {
               value={colorToEdit.code.hex}
             />
           </label>
-          <div className="button-row">
-            <button type="submit">save</button>
+          <div className='button-row'>
+            <button type='submit'>save</button>
             <button onClick={() => setEditing(false)}>cancel</button>
           </div>
         </form>
       )}
-      <div className="spacer" />
+      <div className='spacer' />
       {/* stretch - build another form here to add a color */}
     </div>
   );
