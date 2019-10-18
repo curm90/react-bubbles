@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <Route exact path='/' component={Login} />
+        <Route exact path='/' render={props => <Login {...props} />} />
         <PrivateRoute path='/bubbles' component={BubblePage} />
       </div>
     </Router>
