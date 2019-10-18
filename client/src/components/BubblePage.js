@@ -8,6 +8,7 @@ const colorsURL = 'http://localhost:5000/api/colors';
 
 const BubblePage = props => {
   const [colorList, setColorList] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
 
   const onLogout = () => {
     localStorage.clear();
@@ -25,8 +26,18 @@ const BubblePage = props => {
 
   return (
     <>
-      <ColorList colors={colorList} updateColors={setColorList} />
-      <Bubbles colors={colorList} onLogout={onLogout} />
+      {isFetching ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <ColorList
+            colors={colorList}
+            updateColors={setColorList}
+            onLogout={onLogout}
+          />
+          <Bubbles colors={colorList} />
+        </>
+      )}
     </>
   );
 };

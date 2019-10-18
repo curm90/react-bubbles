@@ -8,7 +8,7 @@ const initialColor = {
 
 const colorsURL = 'http://localhost:5000/api/colors';
 
-const ColorList = ({ colors, updateColors }) => {
+const ColorList = ({ colors, updateColors, onLogout }) => {
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
   const [colorToAdd, setColorToAdd] = useState(initialColor);
@@ -73,7 +73,7 @@ const ColorList = ({ colors, updateColors }) => {
         ))}
       </ul>
       {editing ? (
-        <form onSubmit={saveEdit}>
+        <form classname='edit-form' onSubmit={saveEdit}>
           <legend>edit color</legend>
           <label>
             color name:
@@ -102,7 +102,7 @@ const ColorList = ({ colors, updateColors }) => {
           </div>
         </form>
       ) : (
-        <form onSubmit={addColor}>
+        <form className='add-form' onSubmit={addColor}>
           <legend>Add Color</legend>
           <label>
             color name:
@@ -130,6 +130,9 @@ const ColorList = ({ colors, updateColors }) => {
           </div>
         </form>
       )}
+      <button className='button logout' onClick={onLogout}>
+        Logout
+      </button>
     </div>
   );
 };
